@@ -1,0 +1,21 @@
+{
+  "name": "Mercuria Comunicacion",
+  "short_name": "Mercuria",
+  "description": "Comunicacion con Proposito, Creatividad que Conecta",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#172f3d",
+  "icons": [
+    {
+      "src": "/images/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

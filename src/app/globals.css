@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/* ========================================
+   MERCURIA COMUNICACION - Design System
+   ======================================== */
+
+:root {
+  /* Brand Colors */
+  --mercuria-burgundy: #5e232c;
+  --mercuria-gold: #ecab5f;
+  --mercuria-cyan: #59c1da;
+  --mercuria-navy: #172f3d;
+  --mercuria-blue: #2e5980;
+
+  /* Semantic Colors */
+  --background: #ffffff;
+  --background-warm: #fdf8f3;
+  --foreground: #172f3d;
+  --foreground-muted: #5a6d7a;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px rgba(23, 47, 61, 0.07);
+  --shadow-card-hover: 0 8px 30px rgba(23, 47, 61, 0.12);
+  --shadow-button: 0 2px 8px rgba(23, 47, 61, 0.1);
+
+  /* Border Radius */
+  --radius-card: 1.25rem;
+  --radius-button: 0.625rem;
+  --radius-image: 1rem;
+
+  /* Transitions */
+  --transition-fast: 200ms;
+  --transition-normal: 350ms;
+  --transition-slow: 500ms;
+  --ease-mercuria: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-background-warm: var(--background-warm);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --color-mercuria-burgundy: var(--mercuria-burgundy);
+  --color-mercuria-gold: var(--mercuria-gold);
+  --color-mercuria-cyan: var(--mercuria-cyan);
+  --color-mercuria-navy: var(--mercuria-navy);
+  --color-mercuria-blue: var(--mercuria-blue);
+
+  /* Typography */
+  --font-heading: var(--font-quicksand), system-ui, sans-serif;
+  --font-body: var(--font-lato), system-ui, sans-serif;
+
+  /* Spacing */
+  --spacing-section: 6rem;
+  --spacing-section-sm: 4rem;
+  --spacing-section-lg: 8rem;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* Headings use Quicksand */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--mercuria-navy);
+}
+
+/* Links */
+a {
+  color: var(--mercuria-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast) var(--ease-mercuria);
+}
+
+a:hover {
+  color: var(--mercuria-navy);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--mercuria-cyan);
+  color: var(--mercuria-navy);
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+/* Container */
+.container-mercuria {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-wide {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section Spacing */
+.section {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+.section-sm {
+  padding-top: var(--spacing-section-sm);
+  padding-bottom: var(--spacing-section-sm);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--mercuria-burgundy) 0%, var(--mercuria-gold) 35%, var(--mercuria-cyan) 70%, var(--mercuria-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient Background (like logo ring) */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--mercuria-burgundy) 0%, var(--mercuria-gold) 35%, var(--mercuria-cyan) 70%, var(--mercuria-blue) 100%);
+}
+
+/* Card Style */
+.card {
+  background: white;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+  transition: box-shadow var(--transition-normal) var(--ease-mercuria),
+              transform var(--transition-normal) var(--ease-mercuria);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Image Container */
+.image-container {
+  overflow: hidden;
+  border-radius: var(--radius-image);
+}
+
+.image-container img {
+  transition: transform var(--transition-slow) var(--ease-mercuria);
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Link with animated underline */
+.link-animated {
+  position: relative;
+  display: inline-block;
+}
+
+.link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--mercuria-burgundy), var(--mercuria-gold), var(--mercuria-cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal) var(--ease-mercuria);
+}
+
+.link-animated:hover::after {
+  transform: scaleX(1);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--mercuria-cyan);
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-warm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mercuria-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mercuria-navy);
+}
